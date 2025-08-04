@@ -1,0 +1,23 @@
+def count_file_characters(filename):
+    vowels = consonants = digits = specials = 0
+    special_chars = "~!@#$%^&*<>"
+
+    with open(filename, 'r') as file:
+        text = file.read()
+        for ch in text:
+            if ch.lower() in 'aeiou':
+                vowels += 1
+            elif ch.isalpha():
+                consonants += 1
+            elif ch.isdigit():
+                digits += 1
+            elif ch in special_chars:
+                specials += 1
+
+    print(f"Vowels: {vowels}")
+    print(f"Consonants: {consonants}")
+    print(f"Digits: {digits}")
+    print(f"Special Characters: {specials}")
+
+# Example call
+count_file_characters('sample.txt')
