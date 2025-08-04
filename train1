@@ -1,0 +1,12 @@
+import re
+
+def validate_password(password):
+    pattern = r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[~!@#$%^&*<>]).+$'
+    if re.match(pattern, password):
+        return "Valid password"
+    else:
+        return "Invalid password"
+
+# Example
+pwd = input("Enter password: ")
+print(validate_password(pwd))
