@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form in HTML</title>
+    <style>
+        body {
+            background-color: lightblue;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .ff {
+            background-color: darkgray;
+            font-size: 20px;
+            padding: 20px;
+            width: 350px;
+            margin: 40px auto;
+            border-radius: 10px;
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+        }
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 6px;
+            margin-top: 5px;
+            font-size: 18px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        .gender-options {
+            margin-top: 10px;
+        }
+        .gender-options label {
+            display: inline-block;
+            margin-right: 15px;
+            font-size: 18px;
+        }
+        input[type="checkbox"] {
+            transform: scale(1.2);
+            margin-right: 8px;
+        }
+        input[type="submit"] {
+            margin-top: 20px;
+            font-size: 20px;
+            padding: 8px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+    <script>
+        function val() {
+            let form = document.forms["f1"];
+            let sname = form["sname"].value.trim();
+            let email = form["email"].value.trim();
+            let password = form["password"].value;
+            let confirmPassword = form["confirm_password"].value;
+            
+            
+            if (sname === "") {
+                alert("Name must be filled out");
+                return false;
+            }
+
+           
+            if (email === "") {
+                alert("Email must be filled out");
+                return false;
+            }
+            
+            let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address");
+                return false;
+            }
+
+            
+            let genderOptions = form["gender"];
+            let genderSelected = false;
+            for(let i=0; i<genderOptions.length; i++) {
+                if(genderOptions[i].checked) {
+                    genderSelected = true;
+                    break;
+                }
+            }
+            if (!genderSelected) {
+                alert("Please select your gender");
+                return false;
+            }
+
+            
+            let passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
+            if (!passwordPattern.test(password)) {
+                alert("Password must be at least 8 characters long and include uppercase, lowercase, number, and special character.");
+                return false;
+            }
+
+            
+            if (password !== confirmPassword) {
+                alert("Passwords do not match");
+                return false;
+            }
+
+            
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <form name="f1" onsubmit="return val()" class="ff">
+        <label for="sname">Name:</label>
+        <input type="text" name="sname" id="sname" placeholder="Enter your Name">
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" placeholder="Enter your email">
+
+        <label>Gender:</label>
+        <div class="gender-options">
+            <label><input type="radio" name="gender" value="male"> Male</label>
+            <label><input type="radio" name="gender" value="female"> Female</label>
+            <label><input type="radio" name="gender" value="other"> Other</label>
+        </div>
+
+        <label><input type="checkbox" name="pwd" value="yes"> Person With Disability (PWD)</label>
+
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" placeholder="Enter password">
+
+        <label for="confirm_password">Confirm Password:</label>
+        <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm password">
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
+
