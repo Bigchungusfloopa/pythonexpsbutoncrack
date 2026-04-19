@@ -9,3 +9,6 @@ rm Catppuccin-Mocha-Standard-Lavender-Dark.zip
 
 git clone https://github.com/catppuccin/gtk.git
 cd gtk
+
+sudo apt install python3-pip python3-full -y
+python3 install.py mocha lavender
