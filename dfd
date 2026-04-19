@@ -13,3 +13,17 @@ cd gtk
 sudo apt install python3-pip python3-full -y
 python3 install.py mocha lavender
 python3 install.py mocha flamingo --tweaks rimless
+
+3. KDE Apps on GNOME (Dolphin & Konsole)
+To make these look right on Kali GNOME, you need the KDE integration tools:
+
+Bash
+sudo apt install dolphin konsole qt5-style-kvantum qt6-style-kvantum -y
+Dolphin Theme: Open Dolphin, go to Settings > Configure Dolphin. To make it match Catppuccin, you'll need to install the Kvantum Manager and select a Catppuccin theme there.
+
+Konsole Theme: ```bash
+mkdir -p ~/.local/share/konsole
+cd ~/.local/share/konsole
+wget https://www.google.com/search?q=https://raw.githubusercontent.com/catppuccin/konsole/main/themes/Mocha.colorscheme
+
+Open Konsole -> `Settings > Edit Current Profile > Appearance` and select **Mocha**.
