@@ -1,5 +1,7 @@
-# Remove the old installation (if it exists)
-rm -rf ~/.local/share/themes/Catppuccin-Mocha-Lavender
+sudo apt update
+sudo apt install gnome-tweaks gnome-shell-extensions git -y
 
-# Reinstall to system-wide location (requires sudo)
-cd ~/catppuccin-gtk && python3 install.py mocha lavender -d /usr/share/themes
+cd ~/.themes
+wget https://github.com/catppuccin/gtk/releases/download/v1.0.3/Catppuccin-Mocha-Standard-Lavender-Dark.zip
+unzip Catppuccin-Mocha-Standard-Lavender-Dark.zip
+rm Catppuccin-Mocha-Standard-Lavender-Dark.zip
