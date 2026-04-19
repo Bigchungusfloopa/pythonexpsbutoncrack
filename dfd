@@ -5,3 +5,7 @@ cd ~/.themes
 wget https://github.com/catppuccin/gtk/releases/download/v1.0.3/Catppuccin-Mocha-Standard-Lavender-Dark.zip
 unzip Catppuccin-Mocha-Standard-Lavender-Dark.zip
 rm Catppuccin-Mocha-Standard-Lavender-Dark.zip
+
+
+git clone https://github.com/catppuccin/gtk.git
+cd gtk
