@@ -1,0 +1,5 @@
+# Remove the old installation (if it exists)
+rm -rf ~/.local/share/themes/Catppuccin-Mocha-Lavender
+
+# Reinstall to system-wide location (requires sudo)
+cd ~/catppuccin-gtk && python3 install.py mocha lavender -d /usr/share/themes
